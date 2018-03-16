@@ -26,27 +26,22 @@ void loop() {
  button1 = digitalRead(3);
  button2 = digitalRead(4);
  if (button1 == HIGH) {
-  if (open == 0) {
-    for (pos = 0; pos <= 180; pos += 1) { // goes from 0 degrees to 180 degrees
-     // in steps of 1 degree
-     myservo.write(pos);              // tell servo to go to position in variable 'pos'
-     delay(ts);  // waits 15ms for the servo to reach the position
-     oc == 1;
+  if (oc == 0) {
+   myservo.write(180);
+   oc = 1;
   }
   }
-   if (open == 1){
-    for (pos = 180; pos >= 0; pos -= 1) { // goes from 180 degrees to 0 degrees
-     myservo.write(pos);              // tell servo to go to position in variable 'pos'
-     delay(ts);                       // waits 15ms for the servo to reach the position
-     oc == 0;
+   if (oc == 1){
+    myservo.write(0)
+    oc = 0;
     }
    }
   }
   if (button2 == HIGH) {
    if (ts == 15) {
-    ts == 1;
+    ts = 1;
    if (ts == 1) {
-    ts == 15;
+    ts = 15;
     }
    }
  }
